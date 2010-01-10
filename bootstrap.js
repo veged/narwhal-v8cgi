@@ -6,8 +6,8 @@
 
     var isFile = function(path){ return new File(path).isFile() }; // function(path:string):boolean
 
-    var prefix = system.env.NARWHAL_HOME || system.args[0].replace('/engines/v8cgi/bootstrap.js', '');
-    var enginePrefix = "";
+    var prefix = system.env.NARWHAL_HOME;
+    var enginePrefix = system.env.NARWHAL_ENGINE_HOME;
 
     if (!Object.create) {
         Object.create = function(proto, props){
@@ -38,7 +38,7 @@
                 );
             },
             prefix: prefix,
-            prefixes: [prefix, enginePrefix],
+            prefixes: [enginePrefix, prefix],
             getcwd: system.getcwd,
             env: system.env,
             args: system.args.slice(2),
