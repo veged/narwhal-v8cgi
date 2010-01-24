@@ -51,12 +51,12 @@
                 }
             },
             stdout: {
-                write: function(data) { system.stdout(data) },
+                write: function(data) { system.stdout(data); return this; },
                 flush: function() {}
             },
             stderr: {
-                write: function(data) { system.stderr(data) },
-                print: function(data) { system.stderr(data) },
+                write: function(data) { system.stderr(data); return this; },
+                print: function(data) { system.stderr(data); return this; },
                 flush: function() {}
             },
             debug: false,
