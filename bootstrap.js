@@ -61,6 +61,7 @@
             },
             debug: false,
             verbose: false,
+            supportsTusk: true,
             v8cgi: {
                 require: require
             }
