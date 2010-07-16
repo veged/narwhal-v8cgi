@@ -2,7 +2,13 @@
 
     if(!File.prototype.flush) File.prototype.flush = function(){};
 
-    var read = function(path){ return new File(path).open('r').read() }; // function(path:string):string
+    var read = function(path) {
+        var file = new File(path).open('r'),
+            res = file.read();
+        file.close();
+        return res;
+    }; // function(path:string):string
+
 
     var isFile = function(path){ return new File(path).isFile() }; // function(path:string):boolean
 
